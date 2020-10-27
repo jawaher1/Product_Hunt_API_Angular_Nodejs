@@ -1,0 +1,29 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand">Malou</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      aria-controls="navbar-menu"
+      aria-label="Toggle navigation"
+      (click)="toggleMenu()"
+      [attr.aria-expanded]="!menuHidden"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div id="navbar-menu" class="collapse navbar-collapse float-xs-none" [ngbCollapse]="menuHidden">
+      <div class="navbar-nav">
+        <a
+          *ngFor="let page of pages"
+          class="nav-item nav-link text-uppercase"
+          routerLink="{{ page.path }}"
+          routerLinkActive="active"
+        >
+          <i class="{{ page.icon }}"></i>
+          <span>{{ page.title }}</span>
+        </a>
+      </div>
+      
+    </div>
+  </nav>
+</header>

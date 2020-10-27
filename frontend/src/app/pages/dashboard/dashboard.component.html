@@ -1,0 +1,70 @@
+<div class="container-fluid">
+  <div class="jumbotron text-center">
+    <div id="control_wrapper_left">
+      <div style="width: 300px; margin-left: -50px;" *ngIf="message" [ngClass]="message.cssClass">
+        {{ message.text }}
+      </div>
+      <form [formGroup]="dateForm" (ngSubmit)="onSubmit()">
+        <table class="tab">
+          <tr>
+            <td>
+              <div>
+                <ejs-datepicker
+                  formControlName="date"
+                  [value]="date"
+                  [min]="minDate"
+                  [max]="maxDate"
+                  format="yyyy-MM-dd"
+                  [placeholder]="placeholder"
+                  cssClass="e-customStyle"
+                ></ejs-datepicker>
+              </div>
+            </td>
+            <td>
+              <div class="divbutton">
+                <button class="btn btn-sm text-white">Add</button>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <div id="fetch" class="table-wrapper-scroll-y my-custom-scrollbar">
+          <table class="table1 table-bordered table-striped mb-0">
+            <thead>
+              <tr class="tr1">
+                <th scope="col" width="100px">Product Name</th>
+                
+              </tr>
+            </thead>
+
+            <tr *ngFor="let d of productslist" style="overflow-x: auto;">
+              <td>{{ d.name }}</td>
+             
+            </tr>
+          </table>
+        </div>
+      </form>
+      
+    </div>
+    <div id="control_wrapper_right">
+    <h4 style="text-align: center; color: #d81b60;">Pie Chart For Products by category</h4>
+
+<div style="display: block; ">
+  <canvas 
+    baseChart
+    [data]="pieChartData"
+    
+    [chartType]="pieChartType"
+    [labels]="pieChartLabels"
+    [options]= "lineChartOptions"
+    [legend]="true"
+   
+    (chartHover)="chartHovered($event)"
+    (chartClick)="chartClicked($event)"
+    
+  ></canvas>
+</div>
+</div>
+
+  </div>
+</div>
+
