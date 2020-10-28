@@ -5,6 +5,7 @@ import { Shell } from '@app/shell/shell.service';
 import { DashboardComponent } from '@app/pages/dashboard/dashboard.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   Shell.childRoutes([
     {
       path: 'dashboard',
