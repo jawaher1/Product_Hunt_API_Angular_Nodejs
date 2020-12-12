@@ -1,5 +1,11 @@
 # My-app
 
+
+
+The objective is to create a tool connected to the Product Hunt API allowing to retrieve the products released on a certain date and to make a visualization of them.
+
+
+
 Running Locally 
 
 
